@@ -19,6 +19,7 @@ export default function Layout() {
 
   const navigationItems = [
     { label: 'Hoje', icon: 'today' },
+    { label: 'Medicações', icon: 'md-medkit' },
     { label: 'Progreso', icon: 'stats-chart' },
     { label: 'Perfil', icon: 'person-outline' },
   ]
