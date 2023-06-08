@@ -1,5 +1,5 @@
 import { ScrollView } from 'react-native'
-import { ReminderCard } from '../components/ReminderCard'
+import { ReminderCard } from '../../components/ReminderCard'
 
 export default function Today() {
   return (

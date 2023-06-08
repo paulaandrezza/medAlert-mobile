@@ -4,12 +4,17 @@ import {
   useFonts,
 } from '@expo-google-fonts/roboto'
 
-import { Stack } from 'expo-router'
-import { StatusBar } from 'expo-status-bar'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useState } from 'react'
 import { SafeAreaView } from 'react-native'
 import { BottomNavigation } from '../components/BottomNavigation'
-import { Header } from '../components/Header'
+
+import Medication from './screens/Medication'
+import Profile from './screens/Profile'
+import Progress from './screens/Progress'
+import Today from './screens/Today'
+
+const Stack = createNativeStackNavigator()
 
 export default function Layout() {
   const [activeItem, setActiveItem] = useState(0)
@@ -18,10 +23,25 @@ export default function Layout() {
   }
 
   const navigationItems = [
-    { label: 'Hoje', icon: 'today' },
-    { label: 'Medicações', icon: 'md-medkit' },
-    { label: 'Progreso', icon: 'stats-chart' },
-    { label: 'Perfil', icon: 'person-outline' },
+    { route: Today, name: 'screens/Today', label: 'Hoje', icon: 'today' },
+    {
+      route: Medication,
+      name: 'screens/Medication',
+      label: 'Medicações',
+      icon: 'md-medkit',
+    },
+    {
+      route: Progress,
+      name: 'screens/Progress',
+      label: 'Progreso',
+      icon: 'stats-chart',
+    },
+    {
+      route: Profile,
+      name: 'screens/Profile',
+      label: 'Perfil',
+      icon: 'person-outline',
+    },
   ]
 
   const [hasLoadedFonts] = useFonts({
@@ -35,17 +55,23 @@ export default function Layout() {
 
   return (
     <SafeAreaView className="flex-1 bg-gray-950">
-      <StatusBar style="light" translucent />
-      <Header label={navigationItems[activeItem].label} />
-      <Stack
+      <Stack.Navigator
         screenOptions={{
-          headerShown: false,
+          headerStyle: {
+            backgroundColor: 'transparent',
+          },
+          headerTintColor: '#f9fafb',
           contentStyle: { backgroundColor: 'transparent' },
           animation: 'fade',
         }}
       >
-        <Stack.Screen name="index" />
-      </Stack>
+        <Stack.Screen
+          name={navigationItems[activeItem].name}
+          component={navigationItems[activeItem].route}
+          options={{ title: navigationItems[activeItem].label }}
+        />
+      </Stack.Navigator>
+
       <BottomNavigation
         items={navigationItems}
         activeItem={activeItem}
