@@ -4,12 +4,12 @@ import { Text, TouchableOpacity, View } from 'react-native'
 export function BottomNavigation({ items, activeItem, onChange }) {
   return (
     <View className="absolute inset-x-0 bottom-0 z-10 h-16 w-full flex-row rounded-t-lg bg-gray-900">
-      <View className="w-full flex-row justify-around gap-2">
+      <View className="w-full flex-row gap-2">
         {items.map((item, index) => (
           <TouchableOpacity
             key={item.label}
             activeOpacity={0.7}
-            className="h-full flex-auto flex-col items-center justify-center"
+            className="h-full flex-1 flex-col items-center justify-center"
             onPress={(e) => {
               e.preventDefault()
               onChange(index)
