@@ -8,6 +8,7 @@ export default function App() {
       <ScrollView
         className="mx-4 flex-1"
         contentContainerStyle={{ paddingBottom: 100 }}
+        showsVerticalScrollIndicator={false}
       >
         <ReminderCard />
         <ReminderCard />
