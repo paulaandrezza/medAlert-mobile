@@ -1,7 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useState } from 'react'
 import { Switch, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export function ReminderCard() {
   const [isTaken, setTaken] = useState(false)
@@ -24,9 +23,9 @@ export function ReminderCard() {
           onValueChange={toggleSwitch}
           value={isTaken}
         ></Switch>
-        <TouchableOpacity className="rounded-full bg-gray-700 p-2">
+        <View className="rounded-full bg-gray-700 p-2">
           <MaterialCommunityIcons name="pill" size={20} color="#f9fafb" />
-        </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
