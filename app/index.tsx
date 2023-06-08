@@ -1,13 +1,29 @@
-import { View } from 'react-native'
-
+import { ScrollView } from 'react-native'
 import { FabButton } from '../components/FabButton'
 import { ReminderCard } from '../components/ReminderCard'
 
 export default function App() {
   return (
-    <View className="mx-4 flex-1">
-      <ReminderCard />
+    <>
+      <ScrollView
+        className="mx-4 flex-1"
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+        <ReminderCard />
+      </ScrollView>
       <FabButton />
-    </View>
+    </>
   )
 }

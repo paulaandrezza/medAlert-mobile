@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native'
 
 export function BottomNavigation({ items, activeItem, onChange }) {
   return (
-    <View className="absolute inset-x-0 bottom-0 z-10 h-16 w-full flex-row rounded-t-lg bg-gray-900">
+    <View className="z-10 h-16 w-full flex-row rounded-t-lg bg-gray-900">
       <View className="w-full flex-row gap-2">
         {items.map((item, index) => (
           <TouchableOpacity

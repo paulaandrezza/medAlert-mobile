@@ -7,12 +7,12 @@ export function ReminderCard() {
   const toggleSwitch = () => setTaken(!isTaken)
 
   return (
-    <View className="h-fit w-full flex-row items-center justify-between rounded-lg bg-gray-900 px-6 py-4">
+    <View className="h-fit w-full flex-row items-center justify-between rounded-2xl bg-gray-900 px-6 py-4">
       <View className="flex-1 gap-4">
-        <Text className="font-body text-pink-400">Margarida</Text>
+        <Text className="font-body text-pink-400">Paula</Text>
         <Text className="font-title text-5xl text-gray-50">10:00</Text>
         <View>
-          <Text className="font-body text-gray-50">Azitromicina</Text>
+          <Text className="font-body text-gray-50">Amoxilina</Text>
           <Text className="font-body text-gray-50">2 comprimidos</Text>
         </View>
       </View>
