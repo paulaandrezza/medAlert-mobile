@@ -7,8 +7,9 @@ import {
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import { useState } from 'react'
-import { View } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import { BottomNavigation } from '../components/BottomNavigation'
+import { Header } from '../components/Header'
 
 export default function Layout() {
   const [activeItem, setActiveItem] = useState(0)
@@ -17,9 +18,9 @@ export default function Layout() {
   }
 
   const navigationItems = [
-    { label: 'Hoje', icon: 'calendar-check-o' },
-    { label: 'About', icon: 'calendar-check-o' },
-    { label: 'Contact', icon: 'calendar-check-o' },
+    { label: 'Hoje', icon: 'today' },
+    { label: 'Progreso', icon: 'stats-chart' },
+    { label: 'Perfil', icon: 'person-outline' },
   ]
 
   const [hasLoadedFonts] = useFonts({
@@ -32,9 +33,9 @@ export default function Layout() {
   }
 
   return (
-    <View className="relative flex-1 bg-gray-950 pt-16">
+    <SafeAreaView className="flex-1 bg-gray-950">
       <StatusBar style="light" translucent />
-
+      <Header label={navigationItems[activeItem].label} />
       <Stack
         screenOptions={{
           headerShown: false,
@@ -49,6 +50,6 @@ export default function Layout() {
         activeItem={activeItem}
         onChange={handleNavigationChange}
       />
-    </View>
+    </SafeAreaView>
   )
 }

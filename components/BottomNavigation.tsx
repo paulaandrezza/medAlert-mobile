@@ -1,4 +1,4 @@
-import { FontAwesome } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
 import { Text, TouchableOpacity, View } from 'react-native'
 
 export function BottomNavigation({ items, activeItem, onChange }) {
@@ -15,7 +15,7 @@ export function BottomNavigation({ items, activeItem, onChange }) {
               onChange(index)
             }}
           >
-            <FontAwesome
+            <Ionicons
               name={item.icon}
               size={24}
               color={activeItem === index ? '#f472b6' : '#f9fafb'}

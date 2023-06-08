@@ -5,7 +5,7 @@ import { ReminderCard } from '../components/ReminderCard'
 
 export default function App() {
   return (
-    <View className="mx-4 flex-1 justify-start">
+    <View className="mx-4 flex-1">
       <ReminderCard />
       <FabButton />
     </View>
