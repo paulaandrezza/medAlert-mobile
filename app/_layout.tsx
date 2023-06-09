@@ -10,6 +10,7 @@ import { SafeAreaView } from 'react-native'
 import { BottomNavigation } from '../components/BottomNavigation'
 
 import Medication from './screens/Medication'
+import NewMedication from './screens/NewMedication'
 import Profile from './screens/Profile'
 import Progress from './screens/Progress'
 import Today from './screens/Today'
@@ -60,6 +61,7 @@ export default function Layout() {
           headerStyle: {
             backgroundColor: 'transparent',
           },
+          headerShadowVisible: false,
           headerTintColor: '#f9fafb',
           contentStyle: { backgroundColor: 'transparent' },
           animation: 'fade',
@@ -69,6 +71,11 @@ export default function Layout() {
           name={navigationItems[activeItem].name}
           component={navigationItems[activeItem].route}
           options={{ title: navigationItems[activeItem].label }}
+        />
+        <Stack.Screen
+          name="screens/NewMedication"
+          component={NewMedication}
+          options={{ title: 'Nova Medicação' }}
         />
       </Stack.Navigator>
 

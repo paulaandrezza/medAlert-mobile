@@ -2,7 +2,11 @@ import { ScrollView } from 'react-native'
 import { FabButton } from '../../components/FabButton'
 import { MedicationCard } from '../../components/MedicationCard'
 
-export default function Medication() {
+export default function Medication({ navigation }) {
+  const handleAddMedication = () => {
+    navigation.navigate('screens/NewMedication')
+  }
+
   return (
     <>
       <ScrollView
@@ -13,7 +17,7 @@ export default function Medication() {
         <MedicationCard />
         <MedicationCard />
       </ScrollView>
-      <FabButton />
+      <FabButton addButton={handleAddMedication} />
     </>
   )
 }
