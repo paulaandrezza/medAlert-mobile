@@ -11,25 +11,25 @@ const Tab = createMaterialBottomTabNavigator()
 const navigationItems = [
   {
     component: Today,
-    name: 'screens/Today/index',
+    name: 'Today',
     label: 'Hoje',
     icon: 'today',
   },
   {
     component: Medication,
-    name: 'screens/Medication/index',
+    name: 'Medication',
     label: 'Medicações',
     icon: 'md-medkit',
   },
   {
     component: Progress,
-    name: 'screens/Progress/index',
+    name: 'Progress',
     label: 'Progreso',
     icon: 'stats-chart',
   },
   {
     component: Profile,
-    name: 'screens/Profile/index',
+    name: 'Profile',
     label: 'Perfil',
     icon: 'person',
   },
@@ -49,6 +49,7 @@ export default function Home() {
           name={item.name}
           component={item.component}
           options={{
+            title: item.label,
             tabBarLabel: item.label,
             tabBarIcon: ({ focused }) => (
               <Ionicons
