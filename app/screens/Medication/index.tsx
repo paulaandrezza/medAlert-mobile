@@ -10,7 +10,7 @@ export default function Medication({ navigation }) {
   return (
     <>
       <ScrollView
-        className="mx-4"
+        className="bg-gray-950 px-4"
         contentContainerStyle={{ paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
       >

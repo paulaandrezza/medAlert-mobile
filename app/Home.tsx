@@ -31,7 +31,7 @@ const navigationItems = [
     component: Profile,
     name: 'screens/Profile/index',
     label: 'Perfil',
-    icon: 'person-outline',
+    icon: 'person',
   },
 ]
 
@@ -50,7 +50,7 @@ export default function Home() {
           component={item.component}
           options={{
             tabBarLabel: item.label,
-            tabBarIcon: ({ focused, color }) => (
+            tabBarIcon: ({ focused }) => (
               <Ionicons
                 name={item.icon}
                 size={24}

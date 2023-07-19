@@ -16,7 +16,7 @@ export function MedicationCard() {
       </View>
 
       <View className="mb-4 flex-row items-center gap-x-4">
-        <Ionicons name="person-outline" size={24} color="#f9fafb" />
+        <Ionicons name="person" size={24} color="#f9fafb" />
         <View>
           <Text className="font-body text-base text-gray-50">
             Paula Marinho
