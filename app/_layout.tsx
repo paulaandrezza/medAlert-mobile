@@ -2,39 +2,40 @@ import {
   Roboto_400Regular,
   Roboto_500Medium,
   useFonts,
-} from '@expo-google-fonts/roboto'
+} from "@expo-google-fonts/roboto";
 
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { SafeAreaView } from 'react-native'
-import Home from './Home'
-import NewMedication from './screens/Medication/NewMedication'
-const Stack = createNativeStackNavigator()
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { SafeAreaView } from "react-native";
+import { Button } from "../components/Button";
+import Home from "./Home";
+import NewMedication from "./screens/Medication/NewMedication";
+const Stack = createNativeStackNavigator();
 
 export default function Layout() {
   const [hasLoadedFonts] = useFonts({
     Roboto_400Regular,
     Roboto_500Medium,
-  })
+  });
 
   if (!hasLoadedFonts) {
-    return null
+    return null;
   }
 
   function getHeaderTitle(route) {
-    const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home'
+    const routeName = getFocusedRouteNameFromRoute(route) ?? "Home";
 
     switch (routeName) {
-      case 'Today':
-        return 'Hoje'
-      case 'Medication':
-        return 'Medicações'
-      case 'Progress':
-        return 'Progresso'
-      case 'Profile':
-        return 'Perfil'
+      case "Today":
+        return "Hoje";
+      case "Medication":
+        return "Medicações";
+      case "Progress":
+        return "Progresso";
+      case "Profile":
+        return "Perfil";
       default:
-        return 'Home'
+        return "Home";
     }
   }
 
@@ -43,12 +44,12 @@ export default function Layout() {
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: 'transparent',
+            backgroundColor: "transparent",
           },
           headerShadowVisible: false,
-          headerTintColor: '#f9fafb',
-          contentStyle: { backgroundColor: 'transparent' },
-          animation: 'fade',
+          headerTintColor: "#f9fafb",
+          contentStyle: { backgroundColor: "transparent" },
+          animation: "fade",
         }}
       >
         <Stack.Screen
@@ -62,10 +63,11 @@ export default function Layout() {
           name="screens/Medication/NewMedication/index"
           component={NewMedication}
           options={{
-            title: 'Nova Medicação',
+            title: "Nova Medicação",
+            headerRight: () => <Button />,
           }}
         />
       </Stack.Navigator>
     </SafeAreaView>
-  )
+  );
 }
