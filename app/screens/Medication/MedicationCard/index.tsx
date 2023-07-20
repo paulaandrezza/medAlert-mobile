@@ -6,7 +6,8 @@ import {
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export function MedicationCard() {
+export function MedicationCard({ medication }): JSX.Element {
+  // TODO: tipar medication
   return (
     <View className="mb-2 grid h-fit w-full grid-cols-1 rounded-2xl bg-gray-800 px-6 py-4">
       <View className="items-end">
@@ -27,8 +28,8 @@ export function MedicationCard() {
       <View className="mb-4 flex-row items-start gap-x-4">
         <MaterialCommunityIcons name="pill" size={24} color="#f9fafb" />
         <View>
-          <Text className="font-body text-gray-50">Amoxilina</Text>
-          <Text className="font-body text-gray-50">2 comprimidos</Text>
+          <Text className="font-body text-gray-50">{medication.name}</Text>
+          <Text className="font-body text-gray-50">{medication.dosage}</Text>
         </View>
       </View>
 
