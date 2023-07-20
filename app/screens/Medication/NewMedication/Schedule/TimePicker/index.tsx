@@ -2,7 +2,7 @@ import DateTimePicker from '@react-native-community/datetimepicker'
 import { useState } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 
-export default function TimePicker() {
+export default function TimePicker({setFirstTime}) {
   const [time, setTime] = useState(new Date())
   const [text, setText] = useState('Selecione um horário')
   const [show, setShow] = useState(false)
@@ -11,12 +11,12 @@ export default function TimePicker() {
     const currentTime = value || time
     setShow(false)
     setTime(currentTime)
+    setFirstTime(currentTime)
 
-    const tempTime = new Date(currentTime)
     setText(
-      String(tempTime.getHours()).padStart(2, '0') +
+      String(currentTime.getHours()).padStart(2, '0') +
         ':' +
-        String(tempTime.getMinutes()).padStart(2, '0'),
+        String(currentTime.getMinutes()).padStart(2, '0'),
     )
   }
 
