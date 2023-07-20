@@ -1,10 +1,10 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { useState } from 'react'
-import { Switch, Text, View } from 'react-native'
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useState } from "react";
+import { Switch, Text, View } from "react-native";
 
 export function ReminderCard() {
-  const [isTaken, setTaken] = useState(false)
-  const toggleSwitch = () => setTaken(!isTaken)
+  const [isTaken, setTaken] = useState(false);
+  const toggleSwitch = () => setTaken(!isTaken);
 
   return (
     <View className="mb-2 h-fit w-full flex-row items-center justify-between rounded-2xl bg-gray-800 px-6 py-4">
@@ -18,8 +18,8 @@ export function ReminderCard() {
       </View>
       <View className="h-full max-h-full items-center justify-between">
         <Switch
-          trackColor={{ false: '#374151', true: '#f472b6' }}
-          thumbColor={isTaken ? '#f9a8d4' : '#64748b'}
+          trackColor={{ false: "#374151", true: "#f472b6" }}
+          thumbColor={isTaken ? "#f9a8d4" : "#64748b"}
           onValueChange={toggleSwitch}
           value={isTaken}
         ></Switch>
@@ -28,5 +28,5 @@ export function ReminderCard() {
         </View>
       </View>
     </View>
-  )
+  );
 }

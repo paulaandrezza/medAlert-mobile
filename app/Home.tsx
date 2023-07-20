@@ -1,39 +1,39 @@
-import { Ionicons } from '@expo/vector-icons'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import { Ionicons } from "@expo/vector-icons";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-import Medication from './screens/Medication'
-import Profile from './screens/Profile'
-import Progress from './screens/Progress'
-import Today from './screens/Today'
+import Medication from "./screens/Medication";
+import Profile from "./screens/Profile";
+import Progress from "./screens/Progress";
+import Today from "./screens/Today";
 
-const Tab = createMaterialBottomTabNavigator()
+const Tab = createMaterialBottomTabNavigator();
 
 const navigationItems = [
   {
     component: Today,
-    name: 'Today',
-    label: 'Hoje',
-    icon: 'today' as const,
+    name: "Today",
+    label: "Hoje",
+    icon: "today" as const,
   },
   {
     component: Medication,
-    name: 'Medication',
-    label: 'Medicações',
-    icon: 'md-medkit' as const,
+    name: "Medication",
+    label: "Medicações",
+    icon: "md-medkit" as const,
   },
   {
     component: Progress,
-    name: 'Progress',
-    label: 'Progreso',
-    icon: 'stats-chart' as const,
+    name: "Progress",
+    label: "Progreso",
+    icon: "stats-chart" as const,
   },
   {
     component: Profile,
-    name: 'Profile',
-    label: 'Perfil',
-    icon: 'person' as const,
+    name: "Profile",
+    label: "Perfil",
+    icon: "person" as const,
   },
-]
+];
 
 export default function Home() {
   return (
@@ -41,7 +41,7 @@ export default function Home() {
       initialRouteName="Today"
       activeColor="#f472b6"
       inactiveColor="#f9fafb"
-      barStyle={{ backgroundColor: '#111827' }}
+      barStyle={{ backgroundColor: "#111827" }}
     >
       {navigationItems.map((item) => (
         <Tab.Screen
@@ -54,12 +54,12 @@ export default function Home() {
               <Ionicons
                 name={item.icon}
                 size={24}
-                color={focused ? '#f472b6' : '#f9fafb'}
+                color={focused ? "#f472b6" : "#f9fafb"}
               />
             ),
           }}
         />
       ))}
     </Tab.Navigator>
-  )
+  );
 }

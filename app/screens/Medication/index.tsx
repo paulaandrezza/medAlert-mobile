@@ -1,11 +1,11 @@
-import { ScrollView } from 'react-native'
-import { FabButton } from '../../../components/FabButton'
-import { MedicationCard } from '../../../components/MedicationCard'
+import { ScrollView } from "react-native";
+import { FabButton } from "../../../components/FabButton";
+import { MedicationCard } from "../../../components/MedicationCard";
 
 export default function Medication({ navigation }) {
   const handleAddMedication = () => {
-    navigation.navigate('screens/Medication/NewMedication/index')
-  }
+    navigation.navigate("screens/Medication/NewMedication/index");
+  };
 
   return (
     <>
@@ -19,5 +19,5 @@ export default function Medication({ navigation }) {
       </ScrollView>
       <FabButton addButton={handleAddMedication} />
     </>
-  )
+  );
 }

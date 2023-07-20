@@ -2,6 +2,6 @@
   "extends": ["@rocketseat/eslint-config/react"],
   "rules": {
     "camelcase": "off",
-    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-explicit-any": "error"
   }
 }

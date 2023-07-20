@@ -2,9 +2,9 @@ import {
   FontAwesome,
   Ionicons,
   MaterialCommunityIcons,
-} from '@expo/vector-icons'
-import { Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+} from "@expo/vector-icons";
+import { Text, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function MedicationCard() {
   return (
@@ -43,5 +43,5 @@ export function MedicationCard() {
         </View>
       </View>
     </View>
-  )
+  );
 }

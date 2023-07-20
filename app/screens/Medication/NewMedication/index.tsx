@@ -1,51 +1,48 @@
-import {
-  Ionicons,
-  MaterialCommunityIcons
-} from '@expo/vector-icons'
-import { useState } from 'react'
-import { View } from 'react-native'
-import { TextInput } from 'react-native-paper'
-import Schedule from './Schedule'
-import Select from './Select'
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { useState } from "react";
+import { View } from "react-native";
+import { TextInput } from "react-native-paper";
+import Schedule from "./Schedule";
+import Select from "./Select";
 
 const options = {
   person: [
     {
-      label: 'Paula',
+      label: "Paula",
       value: 1,
     },
     {
-      label: 'Margarida',
+      label: "Margarida",
       value: 2,
     },
   ],
   repeat: [
     {
-      label: '1 vez ao dia | 24/24h',
+      label: "1 vez ao dia | 24/24h",
       value: 1,
     },
     {
-      label: '2 vezes ao dia | 12/12h',
+      label: "2 vezes ao dia | 12/12h",
       value: 2,
     },
     {
-      label: '3 vezes ao dia | 8/8h',
+      label: "3 vezes ao dia | 8/8h",
       value: 3,
     },
     {
-      label: '4 vezes ao dia | 6/6h',
+      label: "4 vezes ao dia | 6/6h",
       value: 4,
     },
     {
-      label: '6 vezes ao dia | 4/4h',
+      label: "6 vezes ao dia | 4/4h",
       value: 6,
     },
-  ]
-}
+  ],
+};
 
 export default function NewMedication() {
-  const [medicineName, setMedicineName] = useState('')
-  const [description, setDescription] = useState('')
+  const [medicineName, setMedicineName] = useState("");
+  const [description, setDescription] = useState("");
 
   return (
     <View className="mb-2 grid h-fit w-full grid-cols-1 gap-y-3 px-4 py-4">
@@ -53,7 +50,7 @@ export default function NewMedication() {
         <View className="w-6">
           <Ionicons name="person" size={24} color="#f9fafb" />
         </View>
-        <View className="flex-1 h-12 rounded-md bg-gray-800">
+        <View className="h-12 flex-1 rounded-md bg-gray-800">
           <Select options={options.person} />
         </View>
       </View>
@@ -75,7 +72,7 @@ export default function NewMedication() {
         </View>
       </View>
 
-      <Schedule options={options.repeat}/>
+      <Schedule options={options.repeat} />
 
       <View className="flex-row items-center gap-x-4">
         <View className="w-6">
@@ -93,7 +90,6 @@ export default function NewMedication() {
           ></TextInput>
         </View>
       </View>
-
     </View>
-  )
+  );
 }
