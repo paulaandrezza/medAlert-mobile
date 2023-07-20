@@ -4,6 +4,7 @@ import {
   useFonts,
 } from '@expo-google-fonts/roboto'
 
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SafeAreaView } from 'react-native'
 import Home from './Home'
@@ -20,6 +21,23 @@ export default function Layout() {
     return null
   }
 
+  function getHeaderTitle(route) {
+    const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home'
+
+    switch (routeName) {
+      case 'Today':
+        return 'Hoje'
+      case 'Medication':
+        return 'Medicações'
+      case 'Progress':
+        return 'Progresso'
+      case 'Profile':
+        return 'Perfil'
+      default:
+        return 'Home'
+    }
+  }
+
   return (
     <SafeAreaView className="flex-1 bg-gray-950">
       <Stack.Navigator
@@ -33,7 +51,13 @@ export default function Layout() {
           animation: 'fade',
         }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={({ route }) => ({
+            title: getHeaderTitle(route),
+          })}
+        />
         <Stack.Screen
           name="screens/Medication/NewMedication/index"
           component={NewMedication}

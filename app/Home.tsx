@@ -13,25 +13,25 @@ const navigationItems = [
     component: Today,
     name: 'Today',
     label: 'Hoje',
-    icon: 'today',
+    icon: 'today' as const,
   },
   {
     component: Medication,
     name: 'Medication',
     label: 'Medicações',
-    icon: 'md-medkit',
+    icon: 'md-medkit' as const,
   },
   {
     component: Progress,
     name: 'Progress',
     label: 'Progreso',
-    icon: 'stats-chart',
+    icon: 'stats-chart' as const,
   },
   {
     component: Profile,
     name: 'Profile',
     label: 'Perfil',
-    icon: 'person',
+    icon: 'person' as const,
   },
 ]
 
@@ -49,7 +49,6 @@ export default function Home() {
           name={item.name}
           component={item.component}
           options={{
-            title: item.label,
             tabBarLabel: item.label,
             tabBarIcon: ({ focused }) => (
               <Ionicons
