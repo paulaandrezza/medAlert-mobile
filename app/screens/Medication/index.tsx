@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 import { FabButton } from "../../../components/FabButton";
 import { api } from "../../../src/api/api";
-import { MedicationProps } from "../../../types";
+import { PersonInfoProps } from "../../../types";
 import { MedicationCard } from "./MedicationCard";
 
 export default function Medication({ navigation }) {
-  const [medications, setMedications] = useState<MedicationProps[]>([])
+  const [peopleInfo, setPeopleInfo] = useState<PersonInfoProps[]>([])
 
   const handleAddMedication = () => {
     navigation.navigate("screens/Medication/NewMedication/index");
@@ -14,8 +14,8 @@ export default function Medication({ navigation }) {
 
   async function loadMedications() {
     try {
-      const response = await api.get('/medication');
-      setMedications(response.data);
+      const response = await api.get('/person/details');
+      setPeopleInfo(response.data);
     } catch (error) {
       console.error('Erro ao carregar medicamentos:', error.message);
     }
@@ -32,8 +32,8 @@ export default function Medication({ navigation }) {
         contentContainerStyle={{ paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
       >
-        {medications.map(medication => (
-          <MedicationCard key={medication.id} medication={medication}/>
+        {peopleInfo.map((personInfo: PersonInfoProps) => (
+          <MedicationCard key={personInfo.id} personInfo={personInfo}/>
         ))}
       </ScrollView>
       <FabButton addButton={handleAddMedication} />

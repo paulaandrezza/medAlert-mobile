@@ -1,48 +1,29 @@
-import {
-  FontAwesome,
-  Ionicons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
+import { useState } from "react";
 import { Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Accordion } from './Accordion';
+import { MedicationAccordion } from './MedicationAccordion';
 
-export function MedicationCard({ medication }): JSX.Element {
-  // TODO: tipar medication
+export function MedicationCard({personInfo}) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <View className="mb-2 grid h-fit w-full grid-cols-1 rounded-2xl bg-gray-800 px-6 py-4">
-      <View className="items-end">
-        <TouchableOpacity activeOpacity={0.7} className="p-2">
-          <FontAwesome name="pencil" size={20} color="#f9fafb" />
-        </TouchableOpacity>
-      </View>
-
-      <View className="mb-4 flex-row items-center gap-x-4">
-        <Ionicons name="person" size={24} color="#f9fafb" />
-        <View>
-          <Text className="font-body text-base text-gray-50">
-            Paula Marinho
-          </Text>
+    <View className='mb-2 h-fit w-full flex flex-col rounded-md bg-gray-800'>
+      <Accordion isOpen={isOpen} setIsOpen={setIsOpen}>
+        <View className="w-6">
+          <Ionicons name="person" size={24} color="#f9fafb" />
         </View>
+        <Text className="font-body text-gray-50">{personInfo.name}</Text>
+      </Accordion>
+      
+      {isOpen && (
+        <View className="bg-gray-900 rounded-b-md px-4 py-4 min-h-[48]">
+        {personInfo.Medication.map((medication) => (
+          <MedicationAccordion key={medication.name} medication={medication} />
+        )
+        )}
       </View>
-
-      <View className="mb-4 flex-row items-start gap-x-4">
-        <MaterialCommunityIcons name="pill" size={24} color="#f9fafb" />
-        <View>
-          <Text className="font-body text-gray-50">{medication.name}</Text>
-          <Text className="font-body text-gray-50">{medication.dosage}</Text>
-        </View>
-      </View>
-
-      <View className="flex-row items-start gap-x-4">
-        <FontAwesome name="bell-o" size={24} color="#f9fafb" />
-        <View>
-          <Text className="font-body text-gray-50">Horários</Text>
-          <Text className="font-body text-gray-50">04:00</Text>
-          <Text className="font-body text-gray-50">10:00</Text>
-          <Text className="font-body text-gray-50">16:00</Text>
-          <Text className="font-body text-gray-50">22:00</Text>
-        </View>
-      </View>
+      )}
     </View>
   );
 }
