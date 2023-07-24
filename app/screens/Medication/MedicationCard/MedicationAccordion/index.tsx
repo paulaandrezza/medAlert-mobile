@@ -5,7 +5,6 @@ import { Accordion } from '../Accordion';
 
 export function MedicationAccordion({medication}) {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(medication)
   const hasPlural = medication.medicationType.hasPlural && medication.dosage > 1 ? "s" : "";
   const textDosage = medication.dosage + " " + medication.medicationType.type + hasPlural;
 

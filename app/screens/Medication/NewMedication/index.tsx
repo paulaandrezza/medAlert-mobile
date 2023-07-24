@@ -1,21 +1,13 @@
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 import { TextInput } from "react-native-paper";
+import DialogCard from "../../../../components/DialogCard";
+import { api } from "../../../../src/api/api";
 import Schedule from "./Schedule";
 import Select from "./Select";
 
 const options = {
-  person: [
-    {
-      label: "Paula",
-      value: 1,
-    },
-    {
-      label: "Margarida",
-      value: 2,
-    },
-  ],
   repeat: [
     {
       label: "1 vez ao dia | 24/24h",
@@ -43,6 +35,39 @@ const options = {
 export default function NewMedication() {
   const [medicineName, setMedicineName] = useState("");
   const [description, setDescription] = useState("");
+  const [people, setPeople] = useState([])
+  const [medicationTypes, setMedicationTypes] = useState([])
+
+  useEffect(() => {
+    const loadPeople = async () => {
+      try {
+        const response = await api.get('/person');
+        const formattedPeople = response.data.map((person) => ({
+          label: person.name,
+          value: person.id,
+        }));
+        setPeople(formattedPeople);
+      } catch (error) {
+        console.error('Erro ao carregar pessoas:', error.message);
+      }
+    }
+
+    const loadMedicationTypes = async () => {
+      try {
+        const response = await api.get('/medicationType');
+        const formattedMedicationType = response.data.map((medication) => ({
+          label: `${medication.type}${medication.hasPlural ? "(s)" : ""}`,
+          value: medication.id,
+        }));
+        setMedicationTypes(formattedMedicationType);
+      } catch (error) {
+        console.error('Erro ao carregar medication types:', error.message);
+      }
+    }
+
+    loadPeople()
+    loadMedicationTypes()
+  }, [])
 
   return (
     <View className="mb-2 grid h-fit w-full grid-cols-1 gap-y-3 px-4 py-4">
@@ -51,7 +76,7 @@ export default function NewMedication() {
           <Ionicons name="person" size={24} color="#f9fafb" />
         </View>
         <View className="h-12 flex-1 rounded-md bg-gray-800">
-          <Select options={options.person} />
+          <Select options={people} />
         </View>
       </View>
 
@@ -69,6 +94,18 @@ export default function NewMedication() {
             activeUnderlineColor="#f472b6"
             textColor="#f9fafb"
           ></TextInput>
+        </View>
+      </View>
+
+      <View className="flex-row items-center gap-x-4 pl-10">
+        <View className="h-12 flex-1 justify-center rounded-md bg-gray-800">
+          <DialogCard />
+        </View>
+      </View>
+
+      <View className="flex-row items-center gap-x-4 pl-10">
+        <View className="h-12 flex-1 rounded-md bg-gray-800">
+          <Select options={medicationTypes} />
         </View>
       </View>
 
