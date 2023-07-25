@@ -7,30 +7,28 @@ import { api } from "../../../../src/api/api";
 import Schedule from "./Schedule";
 import Select from "./Select";
 
-const options = {
-  repeat: [
-    {
-      label: "1 vez ao dia | 24/24h",
-      value: 1,
-    },
-    {
-      label: "2 vezes ao dia | 12/12h",
-      value: 2,
-    },
-    {
-      label: "3 vezes ao dia | 8/8h",
-      value: 3,
-    },
-    {
-      label: "4 vezes ao dia | 6/6h",
-      value: 4,
-    },
-    {
-      label: "6 vezes ao dia | 4/4h",
-      value: 6,
-    },
-  ],
-};
+const repeat = [
+  {
+    label: "1 vez ao dia | 24/24h",
+    value: 1,
+  },
+  {
+    label: "2 vezes ao dia | 12/12h",
+    value: 2,
+  },
+  {
+    label: "3 vezes ao dia | 8/8h",
+    value: 3,
+  },
+  {
+    label: "4 vezes ao dia | 6/6h",
+    value: 4,
+  },
+  {
+    label: "6 vezes ao dia | 4/4h",
+    value: 6,
+  },
+]
 
 export default function NewMedication() {
   const [medicineName, setMedicineName] = useState("");
@@ -109,7 +107,7 @@ export default function NewMedication() {
         </View>
       </View>
 
-      <Schedule options={options.repeat} />
+      <Schedule options={repeat} />
 
       <View className="flex-row items-center gap-x-4">
         <View className="w-6">
