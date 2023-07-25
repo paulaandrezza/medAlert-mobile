@@ -1,8 +1,8 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
-import Select from "../Select";
-import TimePicker from "./TimePicker";
+import Select from "../../../../../components/Select";
+import TimePicker from "../../../../../components/TimePicker";
 
 export default function Schedule({ options }) {
   const [firstTime, setFirstTime] = useState<Date>();

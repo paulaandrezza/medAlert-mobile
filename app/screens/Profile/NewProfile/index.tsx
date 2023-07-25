@@ -2,8 +2,8 @@ import { FontAwesome, FontAwesome5, Ionicons, MaterialCommunityIcons } from "@ex
 import { useState } from "react";
 import { ScrollView, View } from "react-native";
 import { TextInput } from "react-native-paper";
-import TimePicker from "../../Medication/NewMedication/Schedule/TimePicker";
-import Select from "../../Medication/NewMedication/Select";
+import Select from "../../../../components/Select";
+import TimePicker from "../../../../components/TimePicker";
 
 const gender = [
   {

@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { ScrollView, View } from "react-native";
 import { TextInput } from "react-native-paper";
 import DialogCard from "../../../../components/DialogCard";
+import Select from "../../../../components/Select";
 import { api } from "../../../../src/api/api";
 import Schedule from "./Schedule";
-import Select from "./Select";
 
 const repeat = [
   {
