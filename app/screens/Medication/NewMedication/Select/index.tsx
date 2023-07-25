@@ -3,7 +3,7 @@ import { useState } from "react";
 
 interface Option {
   label: string;
-  value: number;
+  value: number | string;
 }
 
 interface Props {

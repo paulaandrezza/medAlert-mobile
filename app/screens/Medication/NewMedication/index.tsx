@@ -87,7 +87,7 @@ export default function NewMedication() {
             className="h-12 w-full rounded-t-md bg-gray-800 font-body"
             onChangeText={setMedicineName}
             value={medicineName}
-            placeholder="Insira o nome da medicação"
+            label="Insira o nome da medicação"
             underlineColor="#f472b6"
             activeUnderlineColor="#f472b6"
             textColor="#f9fafb"
@@ -118,7 +118,7 @@ export default function NewMedication() {
             className="h-12 w-full rounded-t-md bg-gray-800 font-body"
             onChangeText={setDescription}
             value={description}
-            placeholder="Adicionar descrição"
+            label="Adicionar descrição"
             underlineColor="#f472b6"
             activeUnderlineColor="#f472b6"
             textColor="#f9fafb"

@@ -11,6 +11,7 @@ import { PaperProvider } from "react-native-paper";
 import { Button } from "../components/Button";
 import Home from "./Home";
 import NewMedication from "./screens/Medication/NewMedication";
+import NewProfile from "./screens/Profile/NewProfile";
 const Stack = createNativeStackNavigator();
 
 export default function Layout() {
@@ -66,6 +67,14 @@ export default function Layout() {
             component={NewMedication}
             options={{
               title: "Nova Medicação",
+              headerRight: () => <Button />,
+            }}
+          />
+          <Stack.Screen
+            name="screens/Profile/NewProfile/index"
+            component={NewProfile}
+            options={{
+              title: "Novo Perfil",
               headerRight: () => <Button />,
             }}
           />

@@ -41,7 +41,9 @@ export default function Schedule({ options }) {
         </View>
       </View>
 
-      <TimePicker setFirstTime={setFirstTime} />
+      <View className="pl-10">
+        <TimePicker setFirstTime={setFirstTime} mode={"time"} placeholder={"Selecione um horário"} />
+      </View>
 
       {times.slice(1).map((time) => (
         <View key={time} className="flex-row items-center gap-x-4 pl-10">

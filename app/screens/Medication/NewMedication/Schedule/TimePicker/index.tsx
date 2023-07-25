@@ -2,28 +2,39 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
-export default function TimePicker({ setFirstTime }) {
+export default function TimePicker({ setFirstTime, mode, placeholder }) {
   const [time, setTime] = useState(new Date());
-  const [text, setText] = useState("Selecione um horário");
+  const [text, setText] = useState(placeholder);
   const [show, setShow] = useState(false);
 
   const onChange = (event, value) => {
-    const currentTime = value || time;
+    const currentTime: Date = value || time;
     setShow(false);
     setTime(currentTime);
     setFirstTime(currentTime);
 
-    setText(
-      String(currentTime.getHours()).padStart(2, "0") +
-        ":" +
-        String(currentTime.getMinutes()).padStart(2, "0")
-    );
+    let formatedText = ""
+
+    if(mode === 'time') {
+      formatedText = 
+        String(currentTime.getHours()).padStart(2, "0") +
+          ":" +
+        String(currentTime.getMinutes()).padStart(2, "0");
+    } else {
+      formatedText =
+        String(currentTime.getDay()).padStart(2, "0") +
+          "/" +
+        String(currentTime.getMonth()).padStart(2, "0") +
+          "/" +
+        String(currentTime.getFullYear());
+    }
+    setText(formatedText)
   };
 
   return (
-    <View className="flex-row items-center gap-x-4 pl-10">
+    <View className="flex-row items-center">
       <TouchableOpacity
-        className="items-left h-12 w-full flex-1 justify-center rounded-md bg-gray-800 px-4 text-gray-50"
+        className="items-left h-12 w-full justify-center rounded-md bg-gray-800 px-4 text-gray-50"
         activeOpacity={0.7}
         onPress={() => {
           setShow(true);
@@ -36,7 +47,7 @@ export default function TimePicker({ setFirstTime }) {
         <DateTimePicker
           testID="dateTimePicker"
           value={time}
-          mode="time"
+          mode={mode}
           is24Hour={true}
           onChange={onChange}
         />
