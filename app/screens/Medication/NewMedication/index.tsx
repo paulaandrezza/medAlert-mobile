@@ -1,6 +1,6 @@
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { TextInput } from "react-native-paper";
 import DialogCard from "../../../../components/DialogCard";
 import { api } from "../../../../src/api/api";
@@ -70,7 +70,7 @@ export default function NewMedication() {
   }, [])
 
   return (
-    <View className="mb-2 grid h-fit w-full grid-cols-1 gap-y-3 px-4 py-4">
+    <ScrollView className="mb-2 grid h-fit w-full grid-cols-1 gap-y-3 px-4 py-4">
       <View className="flex-row items-center gap-x-4">
         <View className="w-6">
           <Ionicons name="person" size={24} color="#f9fafb" />
@@ -127,6 +127,6 @@ export default function NewMedication() {
           ></TextInput>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
