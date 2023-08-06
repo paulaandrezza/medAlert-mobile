@@ -3,7 +3,11 @@
     "browser": true,
     "es2021": true
   },
-  "extends": "standard-with-typescript",
+  "extends": [
+    "@rocketseat/eslint-config/next", 
+    "next/core-web-vitals",
+    "standard-with-typescript"
+  ],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",

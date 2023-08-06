@@ -90,6 +90,7 @@ export default function NewProfile() {
             className="h-12 w-full rounded-t-md bg-gray-800 font-body"
             onChangeText={(text) => setWeight(Number(text))}
             value={String(weight)}
+            // TODO: arrumar bug de NaN se digitar , ou .
             keyboardType={"number-pad"}
             label="Peso (kg)"
             underlineColor="#f472b6"

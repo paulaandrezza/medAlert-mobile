@@ -2,16 +2,15 @@ import {
   Roboto_400Regular,
   Roboto_500Medium,
   useFonts,
-} from "@expo-google-fonts/roboto";
+} from '@expo-google-fonts/roboto';
 
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { SafeAreaView } from "react-native";
-import { PaperProvider } from "react-native-paper";
-import { Button } from "../components/Button";
-import Home from "./Home";
-import NewMedication from "./screens/Medication/NewMedication";
-import NewProfile from "./screens/Profile/NewProfile";
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaView } from 'react-native';
+import { Button, PaperProvider } from 'react-native-paper';
+import Home from './Home';
+import NewMedication from './screens/Medication/NewMedication';
+import NewProfile from './screens/Profile/NewProfile';
 const Stack = createNativeStackNavigator();
 
 export default function Layout() {
@@ -25,19 +24,19 @@ export default function Layout() {
   }
 
   function getHeaderTitle(route) {
-    const routeName = getFocusedRouteNameFromRoute(route) ?? "Home";
+    const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
 
     switch (routeName) {
-      case "Today":
-        return "Hoje";
-      case "Medication":
-        return "Medicações";
-      case "Progress":
-        return "Progresso";
-      case "Profile":
-        return "Perfil";
+      case 'Today':
+        return 'Hoje';
+      case 'Medication':
+        return 'Medicações';
+      case 'Progress':
+        return 'Progresso';
+      case 'Profile':
+        return 'Perfil';
       default:
-        return "Home";
+        return 'Home';
     }
   }
 
@@ -47,12 +46,12 @@ export default function Layout() {
         <Stack.Navigator
           screenOptions={{
             headerStyle: {
-              backgroundColor: "transparent",
+              backgroundColor: 'transparent',
             },
             headerShadowVisible: false,
-            headerTintColor: "#f9fafb",
-            contentStyle: { backgroundColor: "transparent" },
-            animation: "fade",
+            headerTintColor: '#f9fafb',
+            contentStyle: { backgroundColor: 'transparent' },
+            animation: 'fade',
           }}
         >
           <Stack.Screen
@@ -66,16 +65,24 @@ export default function Layout() {
             name="screens/Medication/NewMedication/index"
             component={NewMedication}
             options={{
-              title: "Nova Medicação",
-              headerRight: () => <Button />,
+              title: 'Nova Medicação',
+              headerRight: () => (
+                <Button mode="contained" onPress={() => console.log('Pressed')}>
+                  Salvar
+                </Button>
+              ),
             }}
           />
           <Stack.Screen
             name="screens/Profile/NewProfile/index"
             component={NewProfile}
             options={{
-              title: "Novo Perfil",
-              headerRight: () => <Button />,
+              title: 'Novo Perfil',
+              headerRight: () => (
+                <Button mode="contained" onPress={() => console.log('Pressed')}>
+                  Salvar
+                </Button>
+              ),
             }}
           />
         </Stack.Navigator>

@@ -48,7 +48,9 @@
   },
   "resolutions": {
     "metro": "0.76.0",
-    "metro-resolver": "0.76.0"
+    "metro-resolver": "0.76.0",
+    "**/@typescript-eslint/eslint-plugin": "^4.1.1",
+    "**/@typescript-eslint/parser": "^4.1.1"
   },
   "private": true
 }

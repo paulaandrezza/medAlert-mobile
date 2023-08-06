@@ -1,6 +1,7 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
+import { IconWrapper } from "../../../../../components/IconWrapper";
 import Select from "../../../../../components/Select";
 import TimePicker from "../../../../../components/TimePicker";
 
@@ -53,14 +54,12 @@ export default function Schedule({ options }) {
         </View>
       ))}
 
-      <View className="flex-row items-center gap-x-4">
-        <View className="w-6">
-          <FontAwesome name="repeat" size={24} color="#f9fafb" />
-        </View>
-        <View className="h-12 flex-1 rounded-md bg-gray-800">
+      <View>
+        <IconWrapper icon={"repeat"}>
           <Select options={options} setRepeat={setRepeat} />
-        </View>
+        </IconWrapper>
       </View>
+
     </View>
   );
 }
