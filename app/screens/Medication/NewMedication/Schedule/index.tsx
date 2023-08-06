@@ -4,31 +4,16 @@ import { Text, View } from "react-native";
 import { IconWrapper } from "../../../../../components/IconWrapper";
 import Select from "../../../../../components/Select";
 import TimePicker from "../../../../../components/TimePicker";
+import { formatTime, getSchedule } from "../../../../../src/utils/schedule";
 
 export default function Schedule({ options }) {
   const [firstTime, setFirstTime] = useState<Date>();
   const [times, setTimes] = useState([]);
   const [repeat, setRepeat] = useState(1);
 
-  const formatTime = (time: Date) => {
-    const formatedTime =
-      String(time.getHours()).padStart(2, "0") +
-      ":" +
-      String(time.getMinutes()).padStart(2, "0");
-    return formatedTime;
-  };
-
   useEffect(() => {
     setTimes([]);
-    const interval = 24 / repeat;
-    for (let i = 0; i < repeat; i++) {
-      if (firstTime) {
-        const time = new Date(
-          firstTime.getTime() + i * interval * 60 * 60 * 1000
-        );
-        setTimes((prevTimes) => [...prevTimes, time]);
-      }
-    }
+    setTimes(getSchedule(firstTime, repeat))
   }, [repeat, firstTime]);
 
   return (
