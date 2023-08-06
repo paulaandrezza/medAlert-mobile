@@ -14,6 +14,10 @@ interface Props {
 export default function Select({ options, setValue }: Props): JSX.Element {
   const [selectedValue, setSelectedValue] = useState<string>();
 
+  if (selectedValue === undefined && options[0]) {
+    setSelectedValue(String(options[0].value))
+  }
+
   return (
     <Picker
       selectedValue={selectedValue}

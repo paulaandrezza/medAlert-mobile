@@ -78,11 +78,6 @@ export default function Layout() {
             component={NewProfile}
             options={{
               title: 'Novo Perfil',
-              headerRight: () => (
-                <Button mode="contained" onPress={() => console.log('Pressed')}>
-                  Salvar
-                </Button>
-              ),
             }}
           />
         </Stack.Navigator>
