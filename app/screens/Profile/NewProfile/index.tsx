@@ -5,7 +5,7 @@ import { IconWrapper } from "../../../../components/IconWrapper";
 import Select from "../../../../components/Select";
 import TimePicker from "../../../../components/TimePicker";
 
-const gender = [
+const genderOptions = [
   {
     label: "Feminino",
     value: "female",
@@ -21,8 +21,9 @@ const gender = [
 ]
 
 export default function NewProfile() {
-  const [name, setName] = useState("")
+  const [name, setName] = useState<string>("")
   const [birth, setBirth] = useState<Date>();
+  const [gender, setGender] = useState<string>(null)
   const [height, setHeight] = useState<number | string>("")
   const [weight, setWeight] = useState<number | string>("")
 
@@ -45,7 +46,7 @@ export default function NewProfile() {
       </IconWrapper>
 
       <IconWrapper icon={"gender-male-female"}>
-        <Select options={gender} />
+        <Select options={genderOptions} setValue={setGender} />
       </IconWrapper>
 
       <IconWrapper icon={"human-male-height-variant"}>

@@ -56,7 +56,7 @@ export default function Schedule({ options }) {
 
       <View>
         <IconWrapper icon={"repeat"}>
-          <Select options={options} setRepeat={setRepeat} />
+          <Select options={options} setValue={setRepeat} />
         </IconWrapper>
       </View>
 

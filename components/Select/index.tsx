@@ -8,11 +8,11 @@ interface Option {
 
 interface Props {
   options: Option[];
-  setRepeat?: React.Dispatch<React.SetStateAction<number>>;
+  setValue?: React.Dispatch<React.SetStateAction<number | string>>;
 }
 
-export default function Select({ options, setRepeat }: Props): JSX.Element {
-  const [selectedValue, setSelectedValue] = useState("");
+export default function Select({ options, setValue }: Props): JSX.Element {
+  const [selectedValue, setSelectedValue] = useState<string>();
 
   return (
     <Picker
@@ -23,7 +23,7 @@ export default function Select({ options, setRepeat }: Props): JSX.Element {
       }}
       dropdownIconColor="white"
       onValueChange={(itemValue) => {
-        setRepeat && setRepeat(Number(itemValue));
+        setValue && setValue(itemValue);
         setSelectedValue(itemValue);
       }}
     >
