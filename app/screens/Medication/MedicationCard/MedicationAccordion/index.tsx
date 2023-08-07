@@ -1,13 +1,21 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import { Chip } from 'react-native-paper';
+import { formatTime, getSchedule } from '../../../../../src/utils/schedule';
 import { Accordion } from '../Accordion';
 
 export function MedicationAccordion({ medication }) {
-  console.log(medication);
-
   const [isOpen, setIsOpen] = useState(false);
+  const [times, setTimes] = useState([]);
+
+  useEffect(() => {
+    setTimes(
+      getSchedule(new Date(medication.firstSchedule), medication.frequency)
+    );
+    console.log(times);
+  }, [isOpen]);
+
   const hasPlural =
     medication.medicationType.hasPlural && medication.dosage > 1 ? 's' : '';
   const textDosage =
@@ -25,12 +33,16 @@ export function MedicationAccordion({ medication }) {
       </Accordion>
 
       {isOpen && (
-        <View className="mx-4 flex-column gap-y-3 mb-3">
-          <Text className="font-body text-gray-50">{textDosage}</Text>
-          <View>
-            <Chip icon="clock-outline" onPress={() => console.log('Pressed')}>
-              Example Chip
-            </Chip>
+        <View className="mx-4 flex-column gap-y-2 mb-3">
+          <Chip>{textDosage}</Chip>
+          <Chip>
+            {medication.frequency} vez
+            {medication.frequency > 1 ? 'es' : ''} ao dia
+          </Chip>
+          <View className="gap-x-2 flex-row flex-wrap">
+            {times.map((time, index) => (
+              <Chip key={index}>{formatTime(time)}</Chip>
+            ))}
           </View>
         </View>
       )}
