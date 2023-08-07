@@ -13,7 +13,6 @@ export function MedicationAccordion({ medication }) {
     setTimes(
       getSchedule(new Date(medication.firstSchedule), medication.frequency)
     );
-    console.log(times);
   }, [isOpen]);
 
   const hasPlural =
@@ -23,12 +22,15 @@ export function MedicationAccordion({ medication }) {
 
   return (
     <View className="-mx-4">
-      <Accordion isOpen={isOpen} setIsOpen={setIsOpen}>
+      <Accordion isOpen={isOpen} setIsOpen={setIsOpen} actionButtons>
         <View className="w-6">
           <MaterialCommunityIcons name="pill" size={24} color="#f9fafb" />
         </View>
         <View>
-          <Text className="font-body text-gray-50">{medication.name}</Text>
+          <Text className="font-body text-gray-50">
+            {medication.name.substring(0, 20) +
+              (medication.name.length > 20 ? '...' : '')}
+          </Text>
         </View>
       </Accordion>
 
